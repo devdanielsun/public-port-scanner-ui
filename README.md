@@ -3,7 +3,9 @@
 ![Build](https://github.com/devdanielsun/public-port-scanner-ui/actions/workflows/docker-image.yml/badge.svg)
 ![Docker Pulls](https://img.shields.io/docker/pulls/devdanielsun/public-port-scanner-ui?style=flat-square)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
+![Issues](https://img.shields.io/github/issues/devdanielsun/public-port-scanner-ui)
+![Last Commit](https://img.shields.io/github/last-commit/devdanielsun/public-port-scanner-ui?style=flat-square)
+![Release](https://img.shields.io/github/v/release/devdanielsun/public-port-scanner-ui?label=last%20published)
 
 A simple web-based TCP and UDP port scanner for your **public IP address**, with live results streamed to the browser. Supports scanning **all ports**, a **custom range**, or **specific ports**. Built using Flask and Socket.IO, and can be easily deployed via Docker.
 
