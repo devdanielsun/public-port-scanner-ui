@@ -49,6 +49,55 @@ def start_scan(data):
         except:
             socketio.emit("scan_result", {"port": -1, "type": "error", "status": "Invalid ports"})
             return
+    elif scan_type == "common":
+        port_list = [
+            21,     # FTP
+            22,     # SSH
+            23,     # Telnet
+            25,     # SMTP
+            53,     # DNS / PiHole DNS / Unbound DNS
+            80,     # HTTP / Web Server
+            110,    # POP3
+            119,    # NNTP
+            123,    # NTP
+            143,    # IMAP
+            161,    # SNMP
+            389,    # LDAP
+            443,    # HTTPS / SSL 
+            445,    # SMB
+            500,    # IPSec VPN
+            554,    # RTSP (IP cameras, streaming)
+            1194,   # OpenVPN
+            1701,   # L2TP VPN
+            1723,   # PPTP VPN
+            1883,   # MQTT (IoT/Home Assistant)
+            2222,   # Alternate SSH
+            3000,   # Node.js/React dev servers
+            32400,  # Plex Media Server
+            32469,  # DLNA (Plex, Emby)
+            3306,   # MySQL/MariaDB
+            3389,   # RDP
+            4500,   # IPSec NAT-T
+            5000,   # Flask/dev servers
+            51820,  # WireGuard VPN
+            5353,   # mDNS (Chromecast, Home Assistant, IoT)
+            5355,   # LLMNR (Windows discovery)
+            5432,   # PostgreSQL
+            6379,   # Redis
+            6881,   # BitTorrent
+            8080,   # HTTP-alt / Nginx Proxy Manager / Home Assistant
+            8081,   # Alternate HTTP (often used by proxies, Nginx Proxy Manager)
+            8082,   # Alternate HTTP
+            8096,   # Jellyfin/Emby
+            8123,   # Home Assistant
+            8443,   # HTTPS-alt / Nginx Proxy Manager
+            8883,   # MQTT TLS
+            9000,   # Sonarr/Radarr/other media managers
+            9091,   # Transmission (BitTorrent)
+            10000,  # Webmin
+            25565,  # Minecraft
+            27017,  # MongoDB
+        ]
 
     def valid_port(p):
         return 1 <= p <= 65535
