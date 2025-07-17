@@ -73,13 +73,10 @@ def start_scan(data):
             1883,   # MQTT (IoT/Home Assistant)
             2222,   # Alternate SSH
             3000,   # Node.js/React dev servers
-            32400,  # Plex Media Server
-            32469,  # DLNA (Plex, Emby)
             3306,   # MySQL/MariaDB
             3389,   # RDP
             4500,   # IPSec NAT-T
             5000,   # Flask/dev servers
-            51820,  # WireGuard VPN
             5353,   # mDNS (Chromecast, Home Assistant, IoT)
             5355,   # LLMNR (Windows discovery)
             5432,   # PostgreSQL
@@ -97,6 +94,9 @@ def start_scan(data):
             10000,  # Webmin
             25565,  # Minecraft
             27017,  # MongoDB
+            32400,  # Plex Media Server
+            32469,  # DLNA (Plex, Emby)
+            51820,  # WireGuard VPN
         ]
 
     def valid_port(p):
