@@ -1,7 +1,6 @@
 # Public Port Scanner UI
 
 ![Build](https://github.com/devdanielsun/public-port-scanner-ui/actions/workflows/docker-image.yml/badge.svg)
-![Docker Pulls](https://img.shields.io/docker/pulls/devdanielsun/public-port-scanner-ui?style=flat-square)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Issues](https://img.shields.io/github/issues/devdanielsun/public-port-scanner-ui)
 ![Last Commit](https://img.shields.io/github/last-commit/devdanielsun/public-port-scanner-ui?style=flat-square)
