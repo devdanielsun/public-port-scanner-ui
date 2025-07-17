@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Port Scanner</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Port Scanner (Public IP)</h1>
+
+    <label>
+        <input type="radio" name="scan_type" value="all" checked> Scan All Ports (1-65535)
+    </label><br>
+    <label>
+        <input type="radio" name="scan_type" value="range"> Port Range (e.g. 20-100)
+    </label><br>
+    <label>
+        <input type="radio" name="scan_type" value="specific"> Specific Ports (e.g. 22,80,443)
+    </label><br>
+    <input type="text" id="port_input" placeholder="Enter ports or range" style="width: 300px;"><br><br>
+
+    <button onclick="startScan()">Start Scan</button>
+    <ul id="results"></ul>
+
+    <script>
+        const socket = io();
+        function startScan() {
+            document.getElementById("results").innerHTML = "";
+            const scanType = document.querySelector('input[name="scan_type"]:checked').value;
+            const ports = document.getElementById("port_input").value;
+            socket.emit("start_scan", { scan_type: scanType, ports: ports });
+        }
+
+        socket.on("scan_result", data => {
+            const li = document.createElement("li");
+            li.textContent = `${data.type} port ${data.port} is ${data.status}`;
+            document.getElementById("results").appendChild(li);
+        });
+
+        socket.on("scan_complete", () => {
+            const li = document.createElement("li");
+            li.textContent = "Scan complete.";
+            document.getElementById("results").appendChild(li);
+        });
+    </script>
+</body>
+</html>
