@@ -43,6 +43,11 @@ virtualenv --system-site-packages -p python ./venv
 ...
 ```
 
+Force stop:
+```bash
+taskkill /F /IM python.exe
+```
+
 Visit: [http://localhost:5000](http://localhost:5000)
 
 ### 🐳 Docker Setup
