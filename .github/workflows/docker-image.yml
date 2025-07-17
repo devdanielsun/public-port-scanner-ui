@@ -48,3 +48,14 @@ jobs:
 
       - name: Log out from Docker
         run: docker logout ghcr.io
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          body: |
+            Automated release for Docker image build.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
