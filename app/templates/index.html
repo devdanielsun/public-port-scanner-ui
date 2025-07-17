@@ -3,9 +3,11 @@
 <head>
     <title>Port Scanner</title>
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css"/>
 </head>
 <body>
-    <h1>Port Scanner (Public IP)</h1>
+    <h1>Port Scanner - Public IP: <span id="public_ip">Loading...</span></h1>
 
     <label>
         <input type="radio" name="scan_type" value="all" checked> Scan All Ports (1-65535)
@@ -19,28 +21,18 @@
     <input type="text" id="port_input" placeholder="Enter ports or range" style="width: 300px;"><br><br>
 
     <button onclick="startScan()">Start Scan</button>
-    <ul id="results"></ul>
 
-    <script>
-        const socket = io();
-        function startScan() {
-            document.getElementById("results").innerHTML = "";
-            const scanType = document.querySelector('input[name="scan_type"]:checked').value;
-            const ports = document.getElementById("port_input").value;
-            socket.emit("start_scan", { scan_type: scanType, ports: ports });
-        }
+    <hr>
 
-        socket.on("scan_result", data => {
-            const li = document.createElement("li");
-            li.textContent = `${data.type} port ${data.port} is ${data.status}`;
-            document.getElementById("results").appendChild(li);
-        });
-
-        socket.on("scan_complete", () => {
-            const li = document.createElement("li");
-            li.textContent = "Scan complete.";
-            document.getElementById("results").appendChild(li);
-        });
-    </script>
+    <div class="results-section">
+        <div class="results-content">
+            <h3>View Results</h3>
+            <textarea id="results_textarea" rows="25" cols="100" readonly></textarea>
+        </div>
+        <div class="results-content">
+            <h3>View Progress</h3>
+            <textarea id="progress_textarea" rows="25" cols="100" readonly></textarea>
+        </div>
+    </div>
 </body>
 </html>
