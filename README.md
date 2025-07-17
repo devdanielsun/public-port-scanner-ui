@@ -14,6 +14,7 @@ A simple web-based TCP and UDP port scanner for your **public IP address**, with
   - All ports (1–65535)
   - Custom port range (e.g., 20–100)
   - Specific ports (e.g., 22,80,443)
+  - Common ports (e.g., 21, 22, 23, 25, 53, 80, 110, 143, 443, 445, 3389, etc.)
 - 🌐 Automatically detects your public IP
 - 📡 Real-time results in browser
 - 🐳 Docker-ready for easy deployment
